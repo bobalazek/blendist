@@ -12,8 +12,8 @@ const keyPath = path.join(
     app.getPath('userData'),
     '.ssh/rsa_key'
 );
-const sshServerIp = machine.ip;
-const sshServerPort = settings.get('ssh_port');
+const machineIp = machine.ip;
+const sshPort = settings.get('ssh_port');
 let server;
 
 /* Main */
@@ -65,12 +65,12 @@ function createServer (listenCallback, connectedCallback) {
             }
         }
     ).listen(
-        sshServerPort,
-        sshServerIp,
+        sshPort,
+        machineIp,
         () => {
             if (config.debug) {
                 console.log('SSH Server started.');
-                console.log('SSH Server is listening on ' + sshServerIp + ':' + sshServerPort);
+                console.log('SSH Server is listening on ' + machineIp + ':' + sshPort);
             }
 
             if (typeof listenCallback != 'undefined') {
