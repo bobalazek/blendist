@@ -1,9 +1,10 @@
 {
     "debug": true,
     "name": "Blendist",
-    "server_ssh_port": 2222,
-    "server_web_interface_port": 8080,
-    "server_projects_path": "~/.blendist/projects",
-    "worker_ssh_port": 2222,
-    "worker_job_update_interval": 5000
+    "ssh_port": 2222,
+    "ssh_username": "blendist",
+    "ssh_password": "blendist",
+    "web_interface_port": 8080,
+    "projects_path": null,
+    "job_update_interval": 5000
 }

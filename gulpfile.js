@@ -1,12 +1,17 @@
 const gulp = require('gulp');
-const electron = require('electron-connect').server.create();
+const childProcess = require('child_process');
+const electron = require('electron');
 
 /***** Default *****/
 gulp.task('default', ['start']);
 
 /***** Start *****/
 gulp.task('start', ['watch'], () => {
-    electron.start();
+    childProcess
+        .spawn(electron, ['.'], { stdio: 'inherit' })
+        .on('close', () => {
+            process.exit();
+        });
 });
 
 // Includes
