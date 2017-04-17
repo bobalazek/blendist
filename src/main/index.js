@@ -1,6 +1,7 @@
 const {app} = require('electron');
 const config = require('../core/config');
 const sshServer = require('../core/ssh/server');
+const webServer = require('../core/web/server');
 
 app.on('ready', () => {
     if (config.debug) {
@@ -8,4 +9,5 @@ app.on('ready', () => {
     }
 
     sshServer.start();
+    webServer.start();
 });

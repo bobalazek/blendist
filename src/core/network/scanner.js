@@ -44,7 +44,7 @@ function scan (cb) {
     }, 200);
 }
 
-function scanPort(port, host, successCallback, errorCallback) => {
+function scanPort(port, host, successCallback, errorCallback) {
     if (config.debug) {
         console.log('Start scanning ' + host + ':' + port + ' ...');
     }

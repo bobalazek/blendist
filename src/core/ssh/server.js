@@ -70,7 +70,7 @@ function createServer (listenCallback, connectedCallback) {
         () => {
             if (config.debug) {
                 console.log('SSH Server started.');
-                console.log('Listening on ' + sshServerIp + ':' + sshServerPort);
+                console.log('SSH Server is listening on ' + sshServerIp + ':' + sshServerPort);
             }
 
             if (typeof listenCallback != 'undefined') {
@@ -105,7 +105,7 @@ function onClientAuthentication (ctx) {
     }
 }
 
-function onClientReady () {
+function onClientReady (client) {
     if (config.debug) {
         console.log('Client authenticated!');
     }
