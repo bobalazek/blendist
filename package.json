@@ -1,0 +1,42 @@
+{
+  "name": "blendist",
+  "version": "0.1.0",
+  "description": "A local blender render farm app",
+  "main": "src/main/index.js",
+  "build": {
+    "appId": "com.bobalazek.blendist",
+    "files": [
+      "src/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "publish": null
+  },
+  "private": true,
+  "scripts": {
+    "start": "gulp start",
+    "watch": "gulp watch",
+    "build": "gulp build --env=prod"
+  },
+  "repository": "bobalazek/blendist.git",
+  "author": "Borut Balazek <bobalazek124@gmail.com>",
+  "homepage": "https://github.com/bobalazek/blendist",
+  "copyright": "© 2017, Borut Balazek.",
+  "devDependencies": {
+    "electron": "^1.6.2",
+    "electron-connect": "^0.6.1",
+    "electron-packager": "^8.6.0",
+    "electron-settings": "^3.0.14",
+    "fs-extra": "^2.1.2",
+    "glob": "^7.1.1",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "http-shutdown": "^1.2.0",
+    "ip": "^1.1.5",
+    "jquery": "^3.2.1",
+    "node-uuid": "^1.4.8",
+    "slugify": "^1.1.0",
+    "ssh2": "^0.5.4",
+    "yargs": "^7.0.2"
+  }
+}
