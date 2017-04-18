@@ -2,7 +2,7 @@ const {app} = require('electron');
 const path = require('path');
 const electronSettings = require('electron-settings');
 const config = require('./config');
-const argv = require('yargs').argv;
+const args = require('./args')();
 
 let self = module.exports = {
     data: {
@@ -21,8 +21,8 @@ let self = module.exports = {
                 app.getPath('userData'),
                 'projects'
             ),
-        is_server: argv.server === true,
-        is_worker: argv.worker === true,
+        is_server: args.indexOf('--server') !== -1,
+        is_worker: args.indexOf('--worker') !== -1,
     },
     get: (key) => {
         if (typeof key == 'undefined') {

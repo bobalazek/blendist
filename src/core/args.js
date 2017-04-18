@@ -3,11 +3,11 @@ const argv = require('yargs').argv;
 module.exports = () => {
     let args = [];
 
-    if (argv.server) {
+    if (!!argv.server) {
         args.push('--server');
     }
 
-    if (argv.worker) {
+    if (!!argv.worker) {
         args.push('--worker');
     }
 

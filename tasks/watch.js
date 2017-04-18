@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const args = require('./_args');
+const args = require('./../src/core/args')();
 
 module.exports = (electron) => {
     gulp.task('watch', () => {
