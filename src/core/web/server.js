@@ -17,9 +17,8 @@ function start (cb) {
     }
 
     // Prepare express stuff
-    const webPath = path.join(__dirname, '../../web');
-    app.set('views', webPath);
-    app.use(express.static(webPath));
+    app.set('views', path.join(__dirname, 'views'));
+    app.use(express.static(path.join(__dirname, '../../web')));
 
     // Define the routes
     require('./routes')(app);

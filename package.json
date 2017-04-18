@@ -17,6 +17,8 @@
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "gulp start",
+    "startserver": "gulp start --server",
+    "startworker": "gulp start --worker",
     "watch": "gulp watch",
     "build": "gulp build --env=prod"
   },
@@ -38,6 +40,7 @@
     "ip": "^1.1.5",
     "jquery": "^3.2.1",
     "keypair": "^1.0.1",
+    "lovefield": "^2.1.12",
     "node-uuid": "^1.4.8",
     "slugify": "^1.1.0",
     "ssh2": "^0.5.4",

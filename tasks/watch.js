@@ -1,12 +1,15 @@
 const gulp = require('gulp');
+const args = require('./_args');
 
-gulp.task('watch', () => {
-    gulp.watch([
-        'src/**/*.js',
-        'src/**/*.css',
-        'src/**/*.html',
-        'src/**/*.twig',
-    ]).on('change', () => {
-        // TODO: implement live-reload
+module.exports = (electron) => {
+    gulp.task('watch', () => {
+        gulp.watch([
+            'src/**/*.js',
+            'src/**/*.css',
+            'src/**/*.html',
+            'src/**/*.twig',
+        ], () => {
+            electron.restart(args);
+        });
     });
-});
+};
