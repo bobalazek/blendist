@@ -1,5 +1,9 @@
 module.exports = function(app) {
+    // Homepage
     app.get('/', function (req, res) {
-        console.log('Hello World!');
+        res.render('index.twig');
     });
+
+    // API
+    // TODO
 }

@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const app = express();
 const config = require('./../config');
@@ -15,11 +16,19 @@ function start (cb) {
         console.log('Starting Web Server ...');
     }
 
+    // Prepare express stuff
+    const webPath = path.join(__dirname, '../../web');
+    app.set('views', webPath);
+    app.use(express.static(webPath));
+
+    // Define the routes
+    require('./routes')(app);
+
+    // Start the server
     server = app.listen(
         webPort,
-        machineIp
+        '0.0.0.0'
     );
-    require('./routes')(app);
 
     if (config.debug) {
         console.log('Web Server started.');
@@ -49,6 +58,7 @@ function stop (cb) {
 
 /* Export */
 module.exports = {
+    port: webPort,
     start: start,
     stop: stop,
 };

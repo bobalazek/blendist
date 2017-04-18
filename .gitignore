@@ -1,5 +1,6 @@
 # General
 /node_modules/
+/bower_components/
 
 # App
 /build/
@@ -8,6 +9,8 @@
 
 /src/config/config_dev.json
 /src/config/config.dist.json
+
+/src/web/assets/vendor/
 
 # MacOS
 .DS_Store

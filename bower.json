@@ -1,0 +1,20 @@
+{
+  "name": "blendist",
+  "description": "A local blender render farm app.",
+  "authors": [
+    "Borut Balazek <bobalazek124@gmail.com>"
+  ],
+  "homepage": "https://github.com/bobalazek/blendist",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": "^2.18.1",
+    "bootstrap": "^3.3.7"
+  }
+}

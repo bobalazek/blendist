@@ -1,9 +1,12 @@
 const gulp = require('gulp');
 
-module.exports = function(electron) {
-    gulp.task('watch', () => {
-        gulp.watch([
-            'src/**/*.js',
-        ], electron.relaunch);
+gulp.task('watch', () => {
+    gulp.watch([
+        'src/**/*.js',
+        'src/**/*.css',
+        'src/**/*.html',
+        'src/**/*.twig',
+    ]).on('change', () => {
+        // TODO: implement live-reload
     });
-};
+});

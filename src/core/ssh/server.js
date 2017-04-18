@@ -66,7 +66,7 @@ function createServer (listenCallback, connectedCallback) {
         }
     ).listen(
         sshPort,
-        machineIp,
+        '0.0.0.0',
         () => {
             if (config.debug) {
                 console.log('SSH Server started.');
@@ -182,6 +182,7 @@ function generateKeys (cb) {
 
 /* Export */
 module.exports = {
+    port: sshPort,
     start: start,
     stop: stop,
 };

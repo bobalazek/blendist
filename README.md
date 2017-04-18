@@ -8,4 +8,5 @@ Your local blender render farm.
 * Clone the repository: `git clone git@github.com:bobalazek/blendist.git`
 * Navigate into it: `cd blendist`
 * Install npm dependencies: `npm install`
+* Install bower dependencies: `bower install`
 * Start the app: `npm start`

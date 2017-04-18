@@ -1,7 +1,7 @@
 const ssh2 = require('ssh2');
-const config = require('./config');
-const settings = require('./settings');
-const registry = require('./registry');
+const config = require('./../config');
+const settings = require('./../settings');
+const registry = require('./../registry');
 const net = require('net');
 const Socket = net.Socket;
 
@@ -74,6 +74,52 @@ function findMachines (cb) {
     });
 }
 
+function isPortTaken(port, fn) {
+    var success_ix = 0;
+    var net = require('net')
+    var test_ipv4 = net.createServer()
+        .once('error', (err) => {
+            if (err.code != 'EADDRINUSE') {
+                return fn(err);
+            }
+
+            fn(null, true);
+        })
+        .once('listening', () => {
+            test_ipv4
+                .once('close', () => {
+                    success_ix++;
+
+                    if (success_ix == 2) {
+                        fn(null, false)
+                    }
+                })
+                .close();
+        })
+        .listen(port, '0.0.0.0');
+
+    var test_ipv6 = net.createServer()
+        .once('error', (err) => {
+            if (err.code != 'EADDRINUSE') {
+                return fn(err);
+            }
+
+            fn(null, true)
+        })
+        .once('listening', () => {
+            test_ipv6
+                .once('close', () => {
+                    success_ix++;
+
+                    if (success_ix == 2) {
+                        fn(null, false)
+                    }
+                })
+                .close();
+        })
+        .listen(port, '::');
+}
+
 /* Helpers */
 function getMachinesInfo (ips, cb) {
     const ipsCount = ips.length;
@@ -142,4 +188,5 @@ function getHostInfo (host, cb) {
 module.exports = {
     scan: scan,
     findMachines: findMachines,
+    isPortTaken: isPortTaken,
 };
