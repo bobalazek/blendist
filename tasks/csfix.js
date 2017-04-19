@@ -1,13 +1,11 @@
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 
-gulp.task('csfix', () => {
-    return gulp.src([
-        'src/**/*.js',
-    ])
-        .pipe(eslint({
-            fix: true,
-        }))
-        .pipe(eslint.format())
-        .pipe(gulp.dest('src'));
-});
+module.exports = (options) => {
+    gulp.task('csfix', () => {
+        return gulp.src(options.csfix.src)
+            .pipe(eslint(options.csfix.eslint_opts))
+            .pipe(eslint.format())
+            .pipe(gulp.dest(options.csfix.dest));
+    });
+};

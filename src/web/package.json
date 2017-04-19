@@ -1,0 +1,7 @@
+{
+  "name": "blendist-web",
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "moment": "^2.18.1"
+  }
+}

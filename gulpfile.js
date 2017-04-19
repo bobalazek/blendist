@@ -3,6 +3,34 @@ const electron = require('electron-connect').server.create({
     port: 11223,
 });
 const args = require('./src/core/args')();
+const config = require('./src/core/config');
+
+const options = {
+    // CSFix
+    csfix: {
+        src: [
+            'src/**/*.js',
+        ],
+        eslint_opts: {
+            fix: true,
+        },
+        dest: 'src',
+    },
+    // Watch
+    watch: {
+        paths: [
+            'src/**/*.js',
+            'src/**/*.css',
+            'src/**/*.html',
+            'src/**/*.twig',
+        ],
+    },
+    // Package
+    package: {
+        src: 'src',
+        dest: 'build/' + config.env,
+    },
+};
 
 /***** Default *****/
 gulp.task('default', ['start']);
@@ -13,6 +41,7 @@ gulp.task('start', ['watch'], () => {
 });
 
 // Includes
-require('./tasks/watch')(electron);
-require('./tasks/csfix');
-require('./tasks/build');
+require('./tasks/watch')(options, electron);
+require('./tasks/csfix')(options);
+require('./tasks/package')(options);
+require('./tasks/build')(options);

@@ -15,10 +15,11 @@
   },
   "private": true,
   "scripts": {
-    "postinstall": "install-app-deps",
+    "postinstall": "cd src/web && npm install",
     "start": "gulp start",
     "startserver": "gulp start --server",
     "startworker": "gulp start --worker",
+    "startboth": "gulp start --server --worker",
     "watch": "gulp watch",
     "build": "gulp build --env=prod"
   },

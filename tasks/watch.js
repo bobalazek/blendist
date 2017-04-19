@@ -1,15 +1,13 @@
 const gulp = require('gulp');
 const args = require('./../src/core/args')();
 
-module.exports = (electron) => {
+module.exports = (options, electron) => {
     gulp.task('watch', () => {
-        gulp.watch([
-            'src/**/*.js',
-            'src/**/*.css',
-            'src/**/*.html',
-            'src/**/*.twig',
-        ], () => {
-            electron.restart(args);
-        });
+        gulp.watch(
+            options.watch.paths,
+            () => {
+                electron.restart(args);
+            }
+        );
     });
 };

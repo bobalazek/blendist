@@ -1,16 +1,13 @@
 # General
-/node_modules/
-/bower_components/
+node_modules/
 
 # App
-/build/
-/dist/
-/out/
+build/
+dist/
+out/
 
-/src/config/config_dev.json
-/src/config/config.dist.json
-
-/src/web/assets/vendor/
+src/config/config_dev.json
+src/config/config.dist.json
 
 # MacOS
 .DS_Store
