@@ -15,6 +15,7 @@ app.on('ready', () => {
             checkWebPort(() => {
                 sshServer.start();
                 webServer.start();
+                networkScanner.findMachines();
             });
         } else {
             sshServer.start();

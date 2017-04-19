@@ -1,9 +1,10 @@
 const ssh2 = require('ssh2');
+const net = require('net');
+const Socket = net.Socket;
 const config = require('./../config');
 const settings = require('./../settings');
 const registry = require('./../registry');
-const net = require('net');
-const Socket = net.Socket;
+const Machine = require('./../models/machine');
 
 /* Prepare */
 const timeout = 1000;
@@ -129,8 +130,10 @@ function getMachinesInfo (ips, cb) {
     if (ipsCount) {
         for (let i = 0; i < ipsCount; i++) {
             const ip = ips[i];
-            self.getHostInfo(ip, (data) => {
-                machines.push(data);
+            getHostInfo(ip, (data) => {
+                machines.push(
+                    new Machine(data)
+                );
 
                 remainingIps--;
             });

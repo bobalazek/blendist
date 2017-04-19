@@ -28,6 +28,7 @@
   "homepage": "https://github.com/bobalazek/blendist",
   "copyright": "© 2017, Borut Balazek.",
   "devDependencies": {
+    "browser-sync": "^2.18.8",
     "electron-connect": "^0.6.1",
     "electron-packager": "^8.6.0",
     "electron-settings": "^3.0.14",

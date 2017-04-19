@@ -88,7 +88,9 @@ function onClientConnected (client) {
 
     client
         .on('authentication', onClientAuthentication)
-        .on('ready', onClientReady)
+        .on('ready', () => {
+            onClientReady(client);
+        })
         .on('end', onClientEnd)
     ;
 }
