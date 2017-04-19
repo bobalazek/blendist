@@ -18,17 +18,30 @@ const options = {
     },
     // Watch
     watch: {
-        paths: [
+        // The main app
+        main_paths: [
             'src/**/*.js',
-            'src/**/*.css',
-            'src/**/*.html',
+            '!src/web/**/*.js',
             'src/**/*.twig',
+        ],
+        // The web app
+        web_paths: [
+            'src/web/**/*.js',
+            'src/web/**/*.css',
+            'src/web/**/*.html',
         ],
     },
     // Package
     package: {
-        src: 'src',
+        src: 'dist',
         dest: 'build/' + config.env,
+    },
+    // Dist
+    dist: {
+        src: [
+            'src/**/*'
+        ],
+        dest: 'dist',
     },
 };
 
@@ -44,4 +57,5 @@ gulp.task('start', ['watch'], () => {
 require('./tasks/watch')(options, electron);
 require('./tasks/csfix')(options);
 require('./tasks/package')(options);
+require('./tasks/dist')(options);
 require('./tasks/build')(options);

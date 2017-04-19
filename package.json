@@ -28,7 +28,6 @@
   "homepage": "https://github.com/bobalazek/blendist",
   "copyright": "© 2017, Borut Balazek.",
   "devDependencies": {
-    "electron": "^1.6.2",
     "electron-connect": "^0.6.1",
     "electron-packager": "^8.6.0",
     "electron-settings": "^3.0.14",
@@ -47,5 +46,8 @@
     "ssh2": "^0.5.4",
     "twig": "^1.10.4",
     "yargs": "^7.0.2"
+  },
+  "dependencies": {
+    "electron": "^1.6.2"
   }
 }

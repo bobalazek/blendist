@@ -3,11 +3,15 @@ const path = require('path');
 const argv = require('yargs').argv;
 
 let config = {};
-let env = argv.env || 'dev';
+const env = argv.env || 'dev';
 
-let configDistPath = path.join(
+const configDistPath = path.join(
     __dirname,
     '../config/config.dist.json'
+);
+const envConfigPath = path.join(
+    __dirname,
+    '../config/config_' + env + '.json'
 );
 
 if (fs.existsSync(configDistPath)) {
@@ -33,13 +37,9 @@ if (fs.existsSync(configDistPath)) {
     let configData = JSON.parse(''+configContent);
 
     // Environment config data
-    if (fs.existsSync(
-        path.join(
-            __dirname,
-            '../config/config_' + env + '.json'
-        )
-    )) {
-        let envConfigData = JSON.parse(''+configContent);
+    if (fs.existsSync(envConfigPath)) {
+        let envConfigContent = fs.readFileSync(envConfigPath);
+        let envConfigData = JSON.parse(''+envConfigContent);
         configData = Object.assign(configData, envConfigData);
     }
 
