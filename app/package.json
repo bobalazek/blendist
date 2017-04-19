@@ -1,4 +1,13 @@
 {
+  "name": "blendist",
+  "version": "0.1.0",
+  "description": "A local blender render farm app.",
+  "main": "main/index.js",
+  "private": true,
+  "repository": "bobalazek/blendist.git",
+  "author": "Borut Balazek <bobalazek124@gmail.com>",
+  "homepage": "https://github.com/bobalazek/blendist",
+  "copyright": "© 2017, Borut Balazek.",
   "dependencies": {
     "express": "^4.15.2",
     "glob": "^7.1.1",

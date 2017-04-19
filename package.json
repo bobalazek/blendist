@@ -1,13 +1,15 @@
 {
-  "name": "blendist",
-  "productName": "Blendist",
-  "version": "0.1.0",
-  "description": "A local blender render farm app.",
+  "private": true,
   "main": "app/main/index.js",
   "build": {
-    "appId": "com.bobalazek.blendist"
+    "appId": "com.bobalazek.blendist",
+    "productName": "Blendist",
+    "files": [
+      "app/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ]
   },
-  "private": true,
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "gulp start",
@@ -15,13 +17,9 @@
     "startworker": "gulp start --worker",
     "startboth": "gulp start --server --worker",
     "watch": "gulp watch",
-    "build": "gulp build",
-    "pack": "gulp pack"
+    "pack": "gulp pack",
+    "build": "gulp build"
   },
-  "repository": "bobalazek/blendist.git",
-  "author": "Borut Balazek <bobalazek124@gmail.com>",
-  "homepage": "https://github.com/bobalazek/blendist",
-  "copyright": "© 2017, Borut Balazek.",
   "devDependencies": {
     "electron": "^1.6.2",
     "electron-connect": "^0.6.1",
