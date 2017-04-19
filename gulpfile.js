@@ -1,11 +1,12 @@
 const gulp = require('gulp');
-const electron = require('electron-connect').server.create({
-    port: 11223,
-});
 const args = require('./src/core/args')();
 const config = require('./src/core/config');
 
 const options = {
+    // General
+    electron: {
+        port: 11223,
+    },
     // CSFix
     csfix: {
         src: [
@@ -31,19 +32,17 @@ const options = {
             'src/web/**/*.html',
         ],
     },
-    // Package
-    package: {
-        src: 'dist',
-        dest: 'build/' + config.env,
-    },
-    // Dist
-    dist: {
+    // Pack
+    pack: {
         src: [
             'src/**/*'
         ],
-        dest: 'dist',
+        dest: 'pack',
     },
 };
+
+const electron = require('electron-connect').server.create(options.electron);
+const browserSync = require('browser-sync').create();
 
 /***** Default *****/
 gulp.task('default', ['start']);
@@ -56,6 +55,5 @@ gulp.task('start', ['watch'], () => {
 // Includes
 require('./tasks/watch')(options, electron);
 require('./tasks/csfix')(options);
-require('./tasks/package')(options);
-require('./tasks/dist')(options);
+require('./tasks/pack')(options);
 require('./tasks/build')(options);

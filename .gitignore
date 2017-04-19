@@ -2,12 +2,15 @@
 node_modules/
 
 # App
-build/
-dist/
-out/
+/pack/*
+/dist/*
+/build/*
+!/build/icons/*
+!/build/icon.icns
+!/build/icon.ico
 
-src/config/config_dev.json
-src/config/config.dist.json
+/src/config/config_dev.json
+/src/config/config.dist.json
 
 # MacOS
 .DS_Store

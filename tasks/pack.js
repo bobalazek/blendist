@@ -4,12 +4,12 @@ const fs = require('fs');
 const config = require('./../src/core/config');
 
 module.exports = (options) => {
-    gulp.task('dist', () => {
-        return gulp.src(options.dist.src)
+    gulp.task('pack', () => {
+        return gulp.src(options.pack.src)
             .on('end', () => {
-                const configDistPath = options.dist.dest + '/config/config.dist.json';
+                const configDistPath = options.pack.dest + '/config/config.dist.json';
                 const configFiles = glob.sync(
-                    options.dist.dest + '/config/*.json'
+                    options.pack.dest + '/config/*.json'
                 );
 
                 // Clean the unused config files.
@@ -24,6 +24,6 @@ module.exports = (options) => {
                     JSON.stringify(config)
                 );
             })
-            .pipe(gulp.dest(options.dist.dest));
+            .pipe(gulp.dest(options.pack.dest));
     });
 };

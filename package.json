@@ -5,13 +5,7 @@
   "description": "A local blender render farm app.",
   "main": "src/main/index.js",
   "build": {
-    "appId": "com.bobalazek.blendist",
-    "files": [
-      "src/**/*",
-      "node_modules/**/*",
-      "package.json"
-    ],
-    "publish": null
+    "appId": "com.bobalazek.blendist"
   },
   "private": true,
   "scripts": {
@@ -21,7 +15,8 @@
     "startworker": "gulp start --worker",
     "startboth": "gulp start --server --worker",
     "watch": "gulp watch",
-    "build": "gulp build --env=prod"
+    "build": "gulp build",
+    "pack": "gulp pack"
   },
   "repository": "bobalazek/blendist.git",
   "author": "Borut Balazek <bobalazek124@gmail.com>",
@@ -29,9 +24,11 @@
   "copyright": "© 2017, Borut Balazek.",
   "devDependencies": {
     "browser-sync": "^2.18.8",
+    "electron": "^1.6.2",
     "electron-connect": "^0.6.1",
     "electron-packager": "^8.6.0",
     "electron-settings": "^3.0.14",
+    "electron-builder": "^14.5.2",
     "express": "^4.15.2",
     "fs-extra": "^2.1.2",
     "glob": "^7.1.1",
@@ -47,8 +44,5 @@
     "ssh2": "^0.5.4",
     "twig": "^1.10.4",
     "yargs": "^7.0.2"
-  },
-  "dependencies": {
-    "electron": "^1.6.2"
   }
 }
