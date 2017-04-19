@@ -1,6 +1,5 @@
 const gulp = require('gulp');
-const args = require('./src/core/args')();
-const config = require('./src/core/config');
+const args = require('./app/core/args')();
 
 const options = {
     // General
@@ -10,7 +9,7 @@ const options = {
     // CSFix
     csfix: {
         src: [
-            'src/**/*.js',
+            'app/**/*.js',
         ],
         eslint_opts: {
             fix: true,
@@ -21,28 +20,27 @@ const options = {
     watch: {
         // The main app
         main_paths: [
-            'src/**/*.js',
-            '!src/web/**/*.js',
-            'src/**/*.twig',
+            'app/**/*.js',
+            '!app/web/**/*.js',
+            'app/**/*.twig',
         ],
         // The web app
         web_paths: [
-            'src/web/**/*.js',
-            'src/web/**/*.css',
-            'src/web/**/*.html',
+            'app/web/**/*.js',
+            'app/web/**/*.css',
+            'app/web/**/*.html',
         ],
     },
     // Pack
     pack: {
         src: [
-            'src/**/*'
+            'app/**/*'
         ],
         dest: 'pack',
     },
 };
 
 const electron = require('electron-connect').server.create(options.electron);
-const browserSync = require('browser-sync').create();
 
 /***** Default *****/
 gulp.task('default', ['start']);

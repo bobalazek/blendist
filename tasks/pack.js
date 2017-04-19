@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const glob = require('glob');
 const fs = require('fs');
-const config = require('./../src/core/config');
+const config = require('./../app/core/config');
 
 module.exports = (options) => {
     gulp.task('pack', () => {
