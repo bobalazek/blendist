@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const multer = require('multer');
 const config = require('./../config');
 const settings = require('./../settings');
 const machine = require('./../machine');
@@ -19,6 +21,8 @@ function start (cb) {
     // Prepare express stuff
     app.set('views', path.join(__dirname, 'views'));
     app.use(express.static(path.join(__dirname, '../../web')));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
 
     // Define the routes
     require('./routes')(app);
