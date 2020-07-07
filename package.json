@@ -21,7 +21,7 @@
     "build": "gulp build"
   },
   "devDependencies": {
-    "electron": "^1.6.2",
+    "electron": "^9.1.0",
     "electron-connect": "^0.6.1",
     "electron-packager": "^8.6.0",
     "electron-settings": "^3.0.14",
